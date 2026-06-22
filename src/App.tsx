@@ -1,5 +1,7 @@
+import { ProjectListPage } from './pages/ProjectListPage'
+
 function App() {
-  return null
+  return <ProjectListPage />
 }
 
 export default App
