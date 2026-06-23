@@ -11,34 +11,37 @@ interface TaskCardProps {
 
 export function TaskCard({ task, projectName, onEdit, onDelete }: TaskCardProps) {
   return (
-    <article className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-900/5 transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-950">
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+    <article className="rounded-[2.5rem] border border-white/10 bg-white/10 p-6 shadow-2xl shadow-slate-950/15 backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-2xl dark:border-white/5 dark:bg-slate-900/40">
+      <div className="flex h-full flex-col gap-5">
+        <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className="text-lg font-semibold text-slate-950 dark:text-white">{task.title}</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">{task.description || 'No description provided.'}</p>
-            <p className="mt-2 text-xs uppercase tracking-[0.24em] text-slate-400">Assigned to {projectName}</p>
+            <h3 className="text-lg font-semibold text-slate-100">{task.title}</h3>
+            <p className="mt-3 text-sm leading-6 text-slate-400">{task.description || 'No description provided.'}</p>
+            <p className="mt-3 text-xs uppercase tracking-[0.24em] text-slate-500">Assigned to {projectName}</p>
           </div>
           <StatusBadge status={task.status} />
         </div>
-        <div className="text-sm text-slate-500 dark:text-slate-400">Due {new Date(task.dueDate).toLocaleDateString()}</div>
-        <div className="flex items-center justify-between gap-3">
-          <div className="text-xs uppercase tracking-[0.24em] text-slate-400">Progress</div>
-          <div className="text-sm font-semibold text-slate-950 dark:text-white">{task.progress}%</div>
+        <div className="rounded-[1.75rem] border border-slate-800/70 bg-slate-950/80 p-4 text-sm text-slate-300">
+          <div className="flex items-center justify-between">
+            <span>Due {new Date(task.dueDate).toLocaleDateString()}</span>
+            <span className="font-semibold text-slate-100">{task.progress}%</span>
+          </div>
+          <div className="mt-4">
+            <ProgressBar progress={task.progress} />
+          </div>
         </div>
-        <ProgressBar progress={task.progress} />
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3">
           <button
             type="button"
             onClick={() => onEdit(task)}
-            className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900"
+            className="rounded-full border border-slate-700/70 bg-slate-900/80 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-slate-800"
           >
             Edit
           </button>
           <button
             type="button"
             onClick={() => onDelete(task)}
-            className="rounded-full border border-rose-200 bg-rose-50 px-4 py-2 text-sm font-semibold text-rose-700 transition hover:bg-rose-100 dark:border-rose-500/20 dark:bg-rose-500/10 dark:text-rose-200 dark:hover:bg-rose-500/20"
+            className="rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-2 text-sm font-semibold text-rose-200 transition hover:bg-rose-500/20"
           >
             Delete
           </button>

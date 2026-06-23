@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useDashboardStore } from '../store/dashboardStore'
 import { FilterControls } from '../components/ui/FilterControls'
 import { KpiCard } from '../components/ui/KpiCard'
+import { SectionHeader } from '../components/ui/SectionHeader'
 import { StatusPieChart } from '../components/ui/StatusPieChart'
 import { ProgressBarChart } from '../components/ui/ProgressBarChart'
 import { CompletionTrendChart } from '../components/ui/CompletionTrendChart'
@@ -105,19 +106,21 @@ export function DashboardOverviewPage() {
   const overallProgress = getCompletionProgress(filteredTasks)
 
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-8 text-slate-950 dark:bg-slate-950 dark:text-slate-50 sm:px-6 lg:px-8">
+    <main className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
-        <header className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-lg shadow-slate-900/5 dark:border-slate-800 dark:bg-slate-950">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-600 dark:text-indigo-300">Dashboard Analytics</p>
-              <h1 className="mt-3 text-3xl font-semibold sm:text-4xl">Track tasks and project health</h1>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-400">
-                Filter, search, and sort tasks while analytics update automatically with every task change.
-              </p>
+        <section className="overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/30 backdrop-blur-xl">
+          <SectionHeader title="Dashboard Analytics" subtitle="Analyze tasks, spot risks, and track delivery." />
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 text-white shadow-inner shadow-slate-950/20">
+              <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Task portfolio</p>
+              <p className="mt-2 text-base leading-7 text-slate-300">Monitor the team’s active work and spot high-priority tasks at a glance.</p>
+            </div>
+            <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 text-white shadow-inner shadow-slate-950/20">
+              <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Status updates</p>
+              <p className="mt-2 text-base leading-7 text-slate-300">Use filters to surface exactly the tasks that matter most for your next sync.</p>
             </div>
           </div>
-        </header>
+        </section>
 
         <FilterControls
           statusFilter={statusFilter}
