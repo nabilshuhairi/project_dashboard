@@ -1,7 +1,14 @@
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, Cell } from 'recharts'
 
 interface ProgressBarChartProps {
   data: Array<{ name: string; progress: number }>
+}
+
+const barColorMap: Record<string, string> = {
+  'In Progress': '#6b9cea',
+  Completed: '#38c76d',
+  'Not Started': '#9c9fa9',
+  'At Risk': '#eb673b',
 }
 
 export function ProgressBarChart({ data }: ProgressBarChartProps) {
@@ -15,7 +22,11 @@ export function ProgressBarChart({ data }: ProgressBarChartProps) {
             <XAxis dataKey="name" tick={{ fontSize: 12 }} />
             <YAxis tick={{ fontSize: 12 }} />
             <Tooltip formatter={(value: number) => `${value}%`} />
-            <Bar dataKey="progress" fill="#cc785c" radius={[8, 8, 0, 0]} />
+            <Bar dataKey="progress" radius={[8, 8, 0, 0]}>
+              {data.map((entry) => (
+                <Cell key={entry.name} fill={barColorMap[entry.name] ?? '#cc785c'} />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
