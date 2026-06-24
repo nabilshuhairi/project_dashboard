@@ -126,9 +126,12 @@ export function DashboardOverviewPage() {
           <KpiCard title="Overall Progress" value={`${overallProgress}%`} />
         </section>
 
-        <section className="grid gap-6 xl:grid-cols-3">
-          <StatusPieChart data={getStatusDistribution(filteredTasks)} />
+        <section className="grid gap-6">
           <ProgressBarChart data={getProgressOverview(filteredTasks)} />
+        </section>
+
+        <section className="grid gap-6 xl:grid-cols-2">
+          <StatusPieChart data={getStatusDistribution(filteredTasks)} />
           <CompletionTrendChart data={getCompletionTrend(filteredTasks)} />
         </section>
       </div>

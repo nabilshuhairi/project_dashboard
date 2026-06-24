@@ -32,13 +32,14 @@ export const ProjectFormSchema = ProjectSchema.pick({
 })
 
 export const TaskFormSchema = TaskSchema.pick({
-  id: true,
   projectId: true,
   title: true,
   description: true,
   status: true,
   progress: true,
   dueDate: true,
+}).extend({
+  id: z.string().optional(),
 })
 
 export type ProjectFormValues = z.infer<typeof ProjectFormSchema>
