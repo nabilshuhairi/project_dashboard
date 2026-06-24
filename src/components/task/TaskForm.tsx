@@ -45,16 +45,16 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
   return (
     <form
       onSubmit={form.handleSubmit(onSubmit)}
-      className="space-y-5 rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 dark:border-slate-800 dark:bg-slate-950"
+      className="space-y-5 rounded-3xl border border-hairline bg-surface-card p-6 shadow-xl shadow-slate-900/5 dark:border-surface-dark-elevated dark:bg-surface-dark"
     >
       <div>
-        <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200" htmlFor="projectId">
+        <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="projectId">
           Project
         </label>
         <select
           id="projectId"
           {...form.register('projectId')}
-          className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
         >
           {projects.map((project) => (
             <option key={project.id} value={project.id}>
@@ -65,14 +65,14 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200" htmlFor="title">
+        <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="title">
           Task Title
         </label>
         <input
           id="title"
           type="text"
           {...form.register('title')}
-          className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
         />
         {form.formState.errors.title ? (
           <p className="mt-2 text-sm text-rose-600">{form.formState.errors.title.message}</p>
@@ -80,26 +80,26 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200" htmlFor="description">
+        <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="description">
           Description
         </label>
         <textarea
           id="description"
           rows={4}
           {...form.register('description')}
-          className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
         />
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200" htmlFor="status">
+          <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="status">
             Status
           </label>
           <select
             id="status"
             {...form.register('status')}
-            className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20"
+            className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
           >
             {statusOptions.map((status) => (
               <option key={status} value={status}>
@@ -110,14 +110,14 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
         </div>
 
         <div>
-          <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200" htmlFor="progress">
+          <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="progress">
             Progress (%)
           </label>
           <input
             id="progress"
             type="number"
             {...form.register('progress', { valueAsNumber: true })}
-            className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20"
+            className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
             min={0}
             max={100}
           />
@@ -128,14 +128,14 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200" htmlFor="dueDate">
+        <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="dueDate">
           Due Date
         </label>
         <input
           id="dueDate"
           type="date"
           {...form.register('dueDate')}
-          className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
         />
         {form.formState.errors.dueDate ? (
           <p className="mt-2 text-sm text-rose-600">{form.formState.errors.dueDate.message}</p>
@@ -146,13 +146,13 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900"
+          className="rounded-full border border-hairline px-4 py-2 text-sm font-semibold text-body transition hover:bg-surface-cream-strong dark:border-surface-dark-elevated dark:text-on-dark dark:hover:bg-surface-dark-elevated"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700"
+          className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-on-primary transition hover:bg-primary-active"
         >
           Save Task
         </button>

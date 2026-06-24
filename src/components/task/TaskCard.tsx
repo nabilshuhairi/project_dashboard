@@ -11,20 +11,20 @@ interface TaskCardProps {
 
 export function TaskCard({ task, projectName, onEdit, onDelete }: TaskCardProps) {
   return (
-    <article className="rounded-[2.5rem] border border-white/10 bg-white/10 p-6 shadow-2xl shadow-slate-950/15 backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-2xl dark:border-white/5 dark:bg-slate-900/40">
+    <article className="rounded-xl border border-hairline bg-surface-card p-6 shadow-2xl shadow-slate-950/15 transition hover:-translate-y-1 hover:shadow-2xl dark:border-surface-dark-elevated dark:bg-surface-dark">
       <div className="flex h-full flex-col gap-5">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className="text-lg font-semibold text-slate-100">{task.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-slate-400">{task.description || 'No description provided.'}</p>
-            <p className="mt-3 text-xs uppercase tracking-[0.24em] text-slate-500">Assigned to {projectName}</p>
+            <h3 className="text-lg font-semibold text-ink">{task.title}</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">{task.description || 'No description provided.'}</p>
+            <p className="mt-3 text-xs uppercase tracking-[0.24em] text-muted">Assigned to {projectName}</p>
           </div>
           <StatusBadge status={task.status} />
         </div>
-        <div className="rounded-[1.75rem] border border-slate-800/70 bg-slate-950/80 p-4 text-sm text-slate-300">
+        <div className="rounded-lg border border-surface-dark-elevated bg-surface-dark p-4 text-sm text-on-dark">
           <div className="flex items-center justify-between">
             <span>Due {new Date(task.dueDate).toLocaleDateString()}</span>
-            <span className="font-semibold text-slate-100">{task.progress}%</span>
+            <span className="font-semibold text-on-dark">{task.progress}%</span>
           </div>
           <div className="mt-4">
             <ProgressBar progress={task.progress} />
@@ -34,14 +34,14 @@ export function TaskCard({ task, projectName, onEdit, onDelete }: TaskCardProps)
           <button
             type="button"
             onClick={() => onEdit(task)}
-            className="rounded-full border border-slate-700/70 bg-slate-900/80 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-slate-800"
+            className="rounded-full border border-hairline bg-surface-cream-strong px-4 py-2 text-sm font-semibold text-ink transition hover:bg-surface-cream-strong/90"
           >
             Edit
           </button>
           <button
             type="button"
             onClick={() => onDelete(task)}
-            className="rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-2 text-sm font-semibold text-rose-200 transition hover:bg-rose-500/20"
+            className="rounded-full border border-error/30 bg-error/10 px-4 py-2 text-sm font-semibold text-error transition hover:bg-error/20"
           >
             Delete
           </button>

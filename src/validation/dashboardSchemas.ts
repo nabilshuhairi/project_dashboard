@@ -25,9 +25,10 @@ export const TaskSchema = z.object({
 })
 
 export const ProjectFormSchema = ProjectSchema.pick({
-  id: true,
   name: true,
   description: true,
+}).extend({
+  id: z.string().optional(),
 })
 
 export const TaskFormSchema = TaskSchema.pick({

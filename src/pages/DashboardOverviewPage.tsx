@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react'
 import { useDashboardStore } from '../store/dashboardStore'
 import { FilterControls } from '../components/ui/FilterControls'
 import { KpiCard } from '../components/ui/KpiCard'
-import { SectionHeader } from '../components/ui/SectionHeader'
 import { StatusPieChart } from '../components/ui/StatusPieChart'
 import { ProgressBarChart } from '../components/ui/ProgressBarChart'
 import { CompletionTrendChart } from '../components/ui/CompletionTrendChart'
@@ -108,19 +107,7 @@ export function DashboardOverviewPage() {
   return (
     <main className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
-        <section className="overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/30 backdrop-blur-xl">
-          <SectionHeader title="Dashboard Analytics" subtitle="Analyze tasks, spot risks, and track delivery." />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 text-white shadow-inner shadow-slate-950/20">
-              <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Task portfolio</p>
-              <p className="mt-2 text-base leading-7 text-slate-300">Monitor the team’s active work and spot high-priority tasks at a glance.</p>
-            </div>
-            <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 text-white shadow-inner shadow-slate-950/20">
-              <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Status updates</p>
-              <p className="mt-2 text-base leading-7 text-slate-300">Use filters to surface exactly the tasks that matter most for your next sync.</p>
-            </div>
-          </div>
-        </section>
+        
 
         <FilterControls
           statusFilter={statusFilter}
@@ -132,11 +119,11 @@ export function DashboardOverviewPage() {
         />
 
         <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
-          <KpiCard title="Total Tasks" value={`${totalTasks}`} description="All tasks matching the current filters." />
-          <KpiCard title="Completed" value={`${completedTasks}`} description="Tasks marked as completed." />
-          <KpiCard title="At Risk" value={`${atRiskTasks}`} description="Tasks that need immediate attention." />
-          <KpiCard title="Overdue" value={`${overdueTasks}`} description="Tasks past their due date and not completed." />
-          <KpiCard title="Overall Progress" value={`${overallProgress}%`} description="Average progress for filtered tasks." />
+          <KpiCard title="Total Tasks" value={`${totalTasks}`} />
+          <KpiCard title="Completed" value={`${completedTasks}`} />
+          <KpiCard title="At Risk" value={`${atRiskTasks}`} />
+          <KpiCard title="Overdue" value={`${overdueTasks}`} />
+          <KpiCard title="Overall Progress" value={`${overallProgress}%`} />
         </section>
 
         <section className="grid gap-6 xl:grid-cols-3">

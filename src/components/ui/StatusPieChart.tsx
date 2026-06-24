@@ -6,17 +6,17 @@ interface StatusPieChartProps {
 }
 
 const colors: Record<TaskStatus | 'Other', string> = {
-  'Not Started': '#0f172a',
-  'In Progress': '#2563eb',
-  'At Risk': '#f59e0b',
-  Completed: '#16a34a',
-  Other: '#94a3b8',
+  'Not Started': '#141413',
+  'In Progress': '#5db8a6',
+  'At Risk': '#e8a55a',
+  Completed: '#5db872',
+  Other: '#8e8b82',
 }
 
 export function StatusPieChart({ data }: StatusPieChartProps) {
   return (
-    <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-900/5 dark:border-slate-800 dark:bg-slate-950">
-      <h2 className="text-lg font-semibold text-slate-950 dark:text-white">Task Status Distribution</h2>
+    <div className="rounded-xl border border-hairline bg-surface-card p-6 shadow-lg shadow-slate-900/5 dark:border-surface-dark-elevated dark:bg-surface-dark">
+      <h2 className="text-lg font-semibold text-ink dark:text-on-dark">Task Status Distribution</h2>
       <div className="mt-6 h-[320px]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>

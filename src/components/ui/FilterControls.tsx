@@ -20,49 +20,44 @@ export function FilterControls({
   onSortByChange,
 }: FilterControlsProps) {
   return (
-    <div className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-900/5 dark:border-slate-800 dark:bg-slate-950 sm:grid-cols-2 xl:grid-cols-4">
-      <div>
-        <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">Status</label>
+    <div className="grid gap-4 rounded-xl border border-hairline bg-surface-card p-6 shadow-lg shadow-slate-900/5 dark:border-surface-dark-elevated dark:bg-surface-dark sm:grid-cols-2 xl:grid-cols-3">
+      <div className="flex h-full flex-col justify-between">
+        <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark">Status</label>
         <select
           value={statusFilter}
           onChange={(event) => onStatusChange(event.target.value as TaskStatus | 'All')}
-          className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20"
+          className="h-14 w-full rounded-2xl border border-[#252320] bg-[#C7C7C7] px-4 text-sm text-[#ffffff] shadow-sm outline-none appearance-none transition focus:border-[#dbdbdb33] focus:ring-2 focus:ring-[#dbdbdb33]/20"
         >
           {statusOptions.map((status) => (
-            <option key={status} value={status}>
+            <option key={status} value={status} className="bg-[#C7C7C7] text-[#ffffff]">
               {status}
             </option>
           ))}
         </select>
       </div>
 
-      <div>
-        <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">Search</label>
+      <div className="flex h-full flex-col justify-between">
+        <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark">Search</label>
         <input
           type="search"
           value={searchQuery}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search task title"
-          className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20"
+          className="h-14 w-full rounded-2xl border border-[#252320] bg-[#C7C7C7] px-4 text-sm text-[#faf9f5] placeholder:text-[#ffffff] shadow-sm outline-none transition focus:border-[#dbdbdb33] focus:ring-2 focus:ring-[#dbdbdb33]/20"
         />
       </div>
 
-      <div>
-        <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">Sort by</label>
+      <div className="flex h-full flex-col justify-between">
+        <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark">Sort by</label>
         <select
           value={sortBy}
           onChange={(event) => onSortByChange(event.target.value as 'dueDate' | 'progress' | '')}
-          className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-950 shadow-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-500/20"
+          className="h-14 w-full rounded-2xl border border-[#252320] bg-[#C7C7C7] px-4 text-sm text-[#ffffff] shadow-sm outline-none appearance-none transition focus:border-[#dbdbdb33] focus:ring-2 focus:ring-[#dbdbdb33]/20"
         >
-          <option value="">None</option>
-          <option value="dueDate">Due Date</option>
-          <option value="progress">Progress</option>
+          <option value="" className="bg-[#C7C7C7] text-[#faf9f5]">None</option>
+          <option value="dueDate" className="bg-[#C7C7C7] text-[#faf9f5]">Due Date</option>
+          <option value="progress" className="bg-[#C7C7C7] text-[#faf9f5]">Progress</option>
         </select>
-      </div>
-
-      <div className="flex flex-col justify-end gap-2">
-        <p className="text-sm text-slate-500 dark:text-slate-400">Filters update immediately when tasks change.</p>
-        <p className="text-xs text-slate-400 dark:text-slate-500">Search, status, and sort are combined for dynamic analytics.</p>
       </div>
     </div>
   )
