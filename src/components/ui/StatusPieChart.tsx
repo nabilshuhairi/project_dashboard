@@ -6,10 +6,10 @@ interface StatusPieChartProps {
 }
 
 const colors: Record<TaskStatus | 'Other', string> = {
-  'Not Started': '#141413',
-  'In Progress': '#5db8a6',
-  'At Risk': '#e8a55a',
-  Completed: '#5db872',
+  'Not Started': '#9c9fa9',
+  'In Progress': '#6b9cea',
+  'At Risk': '#eb673b',
+  Completed: '#38c76d',
   Other: '#8e8b82',
 }
 
