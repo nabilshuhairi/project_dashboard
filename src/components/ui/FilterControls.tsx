@@ -46,7 +46,7 @@ function DropdownSelect<T extends string>({ label, value, options, onChange }: D
       <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark">{label}</label>
       <button
         type="button"
-        className="flex h-14 w-full items-center justify-between rounded-2xl border border-[#252320] bg-[#C7C7C7] px-4 text-left text-sm text-[#ffffff] shadow-sm transition focus:border-[#dbdbdb33] focus:outline-none focus:ring-2 focus:ring-[#dbdbdb33]/20"
+        className="flex h-14 w-full items-center justify-between rounded-2xl border border-[#252320] bg-white px-4 text-left text-sm text-black shadow-sm transition focus:border-[#dbdbdb33] focus:outline-none focus:ring-2 focus:ring-[#dbdbdb33]/20"
         onClick={() => setIsOpen((current) => !current)}
         aria-expanded={isOpen}
       >
@@ -58,12 +58,12 @@ function DropdownSelect<T extends string>({ label, value, options, onChange }: D
         </span>
       </button>
       {isOpen && (
-        <div className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-auto rounded-2xl border border-[#252320] bg-[#C7C7C7] shadow-lg">
+        <div className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-auto rounded-2xl border border-[#252320] bg-white shadow-lg">
           {options.map((option) => (
             <button
               key={option.value}
               type="button"
-              className="w-full px-4 py-3 text-left text-sm text-[#faf9f5] transition hover:bg-slate-400/50"
+              className="w-full px-4 py-3 text-left text-sm text-black transition hover:bg-slate-100"
               onClick={() => {
                 onChange(option.value)
                 setIsOpen(false)
@@ -102,7 +102,7 @@ export function FilterControls({
           value={searchQuery}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search task title"
-          className="h-14 w-full rounded-2xl border border-[#252320] bg-[#C7C7C7] px-4 text-sm text-[#faf9f5] placeholder:text-[#ffffff] shadow-sm outline-none transition focus:border-[#dbdbdb33] focus:ring-2 focus:ring-[#dbdbdb33]/20"
+          className="h-14 w-full rounded-2xl border border-[#252320] bg-white px-4 text-sm text-black placeholder:text-black shadow-sm outline-none transition focus:border-[#dbdbdb33] focus:ring-2 focus:ring-[#dbdbdb33]/20"
         />
       </div>
 
