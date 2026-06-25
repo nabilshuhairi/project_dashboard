@@ -1,73 +1,136 @@
-# React + TypeScript + Vite
+# Project Pulse Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern project and task management dashboard built with Vite, React, and TypeScript.
 
-Currently, two official plugins are available:
+This application provides a workspace for tracking projects, tasks, progress metrics, and AI-inspired insights with local persistence and responsive analytics.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Key Features
 
-## React Compiler
+- Dashboard overview with KPI cards, filtered task lists, progress charts, status distribution, and completion trends.
+- Project management page for creating, editing, and deleting projects.
+- Task management page for adding, updating, and assigning tasks to projects.
+- AI Insights page with generated summaries, risk highlights, next actions, and weekly updates.
+- Persistent storage using `localStorage` so data survives browser refresh.
+- Validation using `react-hook-form` and `zod`.
+- Responsive UI styled with Tailwind CSS.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technology Stack
 
-## Expanding the ESLint configuration
+- React 19
+- TypeScript 6
+- Vite 5
+- Zustand for state management
+- Recharts for charts and data visualization
+- Framer Motion for animated page transitions
+- React Hook Form and Zod for form handling and validation
+- Tailwind CSS for styling
+- ESLint for code quality
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## App Architecture
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Core Pages
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `src/pages/DashboardOverviewPage.tsx`
+  - Main analytics view with task filtering, sorting, and KPI computation.
+  - Displays charts for progress overview, status distribution, and completion trend.
+- `src/pages/ProjectListPage.tsx`
+  - Manage project entities with add/edit/delete flows and confirmation modals.
+- `src/pages/TaskListPage.tsx`
+  - Manage task entities, assign them to projects, and persist them in local state.
+- `src/pages/AIInsightsPage.tsx`
+  - Generate project insights from task and project data with mock AI output and optional OpenAI hook.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### State Management
+
+- `src/store/dashboardStore.ts`
+  - Zustand store for global `projects` and `tasks` state.
+  - Supports CRUD actions and persistence via `localStorage`.
+
+### Types and Validation
+
+- `src/types/task.ts` and `src/types/project.ts`
+  - Strongly typed project and task models.
+- `src/validation/dashboardSchemas.ts`
+  - Zod schemas for project and task form validation.
+
+### UI Components
+
+- `src/components/ui/FilterControls.tsx`
+  - Filter controls for task status, search, and sorting.
+- `src/components/ui/KpiCard.tsx`
+  - Compact metric cards for dashboard KPIs.
+- `src/components/ui/ProgressBarChart.tsx`
+  - Progress bar chart with Recharts and tooltip customization.
+- `src/components/ui/StatusPieChart.tsx`
+  - Pie chart showing task status distribution.
+- `src/components/ui/CompletionTrendChart.tsx`
+  - Line chart displaying completed-task trends.
+- `src/components/ui/Modal.tsx`
+  - Reusable modal dialog component.
+- `src/components/ui/Notification.tsx`
+  - Toast-style notification component.
+
+### Project Components
+
+- `src/components/project/ProjectForm.tsx`
+  - Project create/edit form with validation.
+- `src/components/project/ProjectCard.tsx`
+  - Project summary card display.
+- `src/components/task/TaskForm.tsx`
+  - Task form with project assignment, status, progress, and due date.
+- `src/components/task/TaskCard.tsx`
+  - Task summary card layout.
+- `src/components/task/TaskTable.tsx`
+  - Table layout for managing tasks.
+
+### Utility Modules
+
+- `src/utils/storage.ts`
+  - Helper functions for loading, saving, and removing JSON from storage.
+- `src/utils/identity.ts`
+  - ID generation and timestamp utilities.
+
+## Design and UX
+
+- Dark and light-aware UI with polished cards, translucent surfaces, and subtle shadows.
+- Responsive layout with a desktop sidebar and mobile navigation.
+- Clean data visualization and analytics-first dashboard presentation.
+- Modal and form interactions optimized for fast task and project management.
+
+## Getting Started
+
+### Install dependencies
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Notes
+
+- AI insights currently use offline mock data unless `VITE_OPENAI_API_KEY` is provided.
+- Project and task state is persisted under the `project-dashboard-state` localStorage key.
+- Charts are implemented using Recharts and styled at the component level.
