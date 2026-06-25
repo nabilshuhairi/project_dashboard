@@ -67,21 +67,21 @@ export function AIInsightsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950 px-4 py-8 text-slate-100 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white px-4 py-8 text-slate-900 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
-        <header className="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/80 p-8 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
+        <header className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-indigo-300">AI Insights</p>
-              <h1 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Intelligent project analysis</h1>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-indigo-600">AI Insights</p>
+              <h1 className="mt-3 text-3xl font-semibold text-slate-900 sm:text-4xl">Intelligent project analysis</h1>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
                 Generate summaries, blockers, next actions, and weekly updates for your active projects.
               </p>
             </div>
             <button
               type="button"
               onClick={generateInsights}
-              className="inline-flex items-center justify-center rounded-full bg-indigo-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+              className="inline-flex items-center justify-center rounded-full bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
             >
               {loading ? 'Generating…' : 'Generate AI Insights'}
             </button>
@@ -91,18 +91,18 @@ export function AIInsightsPage() {
         {notification ? <Notification type={notification.type} message={notification.message} /> : null}
 
         <section className="grid gap-6 lg:grid-cols-[280px_minmax(0,_1fr)]">
-          <div className="space-y-4 rounded-[2rem] border border-white/10 bg-slate-900/80 p-6 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
-            <p className="text-sm uppercase tracking-[0.28em] text-slate-500">AI Generated Summary</p>
+          <div className="space-y-4 rounded-[2rem] border border-slate-800 bg-slate-950/95 p-6 shadow-2xl shadow-slate-950/30">
+            <p className="text-sm uppercase tracking-[0.28em] text-slate-400">AI Generated Summary</p>
             <div className="grid gap-3">
               {aiSections.map((section) => (
                 <button
                   key={section.key}
                   type="button"
                   onClick={() => setSelectedSection(section.key)}
-                  className={`w-full rounded-3xl px-4 py-4 text-left transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 ${
+                  className={`w-full rounded-3xl px-4 py-4 text-left transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
                     selectedSection === section.key
-                      ? 'bg-indigo-500/15 text-white shadow-inner shadow-indigo-500/10'
-                      : 'bg-slate-950/60 text-slate-300 hover:bg-slate-900/80'
+                      ? 'bg-indigo-600 text-white shadow-inner shadow-indigo-500/20'
+                      : 'bg-slate-900 text-slate-300 hover:bg-slate-800'
                   }`}
                 >
                   <p className="text-sm font-semibold">{section.title}</p>
@@ -112,7 +112,7 @@ export function AIInsightsPage() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-[2rem] border border-white/10 bg-slate-900/80 p-8 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
+            <div className="rounded-[2rem] border border-slate-800 bg-slate-950/95 p-8 shadow-2xl shadow-slate-950/30">
               <div className="mb-4 flex items-center justify-between gap-4">
                 <div>
                   <h2 className="text-xl font-semibold text-white">{aiSections.find((item) => item.key === selectedSection)?.title}</h2>
@@ -120,13 +120,13 @@ export function AIInsightsPage() {
                 </div>
                 <span className="rounded-full bg-slate-800/80 px-3 py-1 text-xs uppercase tracking-[0.24em] text-slate-400">{loading ? 'Loading' : 'Ready'}</span>
               </div>
-              <div className="min-h-[220px] rounded-[1.75rem] border border-slate-800/60 bg-slate-950/80 p-6 text-sm leading-7 text-slate-200 shadow-inner shadow-slate-950/50">
+              <div className="min-h-[220px] rounded-[1.75rem] border border-slate-800 bg-slate-900/95 p-6 text-sm leading-7 text-slate-300 shadow-inner shadow-slate-950/30">
                 {loading ? (
                   <div className="space-y-4">
-                    <div className="h-4 w-3/4 animate-pulse rounded-full bg-slate-700/70" />
-                    <div className="h-4 w-full animate-pulse rounded-full bg-slate-700/70" />
-                    <div className="h-4 w-5/6 animate-pulse rounded-full bg-slate-700/70" />
-                    <div className="h-4 w-2/3 animate-pulse rounded-full bg-slate-700/70" />
+                    <div className="h-4 w-3/4 animate-pulse rounded-full bg-slate-800" />
+                    <div className="h-4 w-full animate-pulse rounded-full bg-slate-800" />
+                    <div className="h-4 w-5/6 animate-pulse rounded-full bg-slate-800" />
+                    <div className="h-4 w-2/3 animate-pulse rounded-full bg-slate-800" />
                   </div>
                 ) : (
                   <p>{selectedContent}</p>
@@ -135,13 +135,13 @@ export function AIInsightsPage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-[2rem] border border-white/10 bg-slate-900/80 p-6 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
+              <div className="rounded-[2rem] border border-slate-800 bg-slate-950/95 p-6 shadow-2xl shadow-slate-950/30">
                 <h3 className="text-base font-semibold text-white">Insights Source</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-400">
                   These insights are generated from active project and task data, with offline fallback responses when AI credentials are unavailable.
                 </p>
               </div>
-              <div className="rounded-[2rem] border border-white/10 bg-slate-900/80 p-6 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
+              <div className="rounded-[2rem] border border-slate-800 bg-slate-950/95 p-6 shadow-2xl shadow-slate-950/30">
                 <h3 className="text-base font-semibold text-white">Current Workspace</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-400">
                   {projects.length} project{projects.length === 1 ? '' : 's'}, {tasks.length} task{tasks.length === 1 ? '' : 's'} tracked in persistent LocalStorage.
