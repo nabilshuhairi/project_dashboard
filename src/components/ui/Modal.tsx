@@ -42,13 +42,6 @@ export function Modal({
           <div>{children}</div>
         </div>
         <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-end">
-          <button
-            type="button"
-            onClick={onCancel}
-            className="rounded-full border border-hairline px-4 py-2 text-sm font-semibold text-body transition hover:bg-surface-cream-strong focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 dark:border-surface-dark-elevated dark:text-on-dark dark:hover:bg-surface-dark-elevated"
-          >
-            {cancelLabel}
-          </button>
           {onConfirm ? (
             <button
               type="button"
