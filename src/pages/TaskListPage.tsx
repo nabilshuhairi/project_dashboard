@@ -143,10 +143,10 @@ export function TaskListPage() {
 
       {showForm ? (
         <Modal
-          title={editingTask ? 'Edit Task' : 'New Task'}
-          description="Fill in the task details and assign it to a project."
+          title={editingTask ? undefined : 'New Task'}
+          description={editingTask ? undefined : 'Fill in the task details and assign it to a project.'}
           open={showForm}
-          cancelLabel="Close"
+          showCancelButton={false}
           onCancel={() => {
             setShowForm(false)
             setEditingTask(null)
@@ -155,6 +155,8 @@ export function TaskListPage() {
           <TaskForm
             task={editingTask ?? undefined}
             projects={projects}
+            headerTitle={editingTask ? 'Edit Task' : undefined}
+            headerDescription={editingTask ? 'Fill in the task details and assign it to a project.' : undefined}
             onSubmit={handleSubmit}
             onCancel={() => {
               setShowForm(false)

@@ -7,11 +7,13 @@ import type { Project } from '../../types'
 
 interface ProjectFormProps {
   project?: Project
+  headerTitle?: string
+  headerDescription?: string
   onSubmit: (values: ProjectFormValues) => void
   onCancel: () => void
 }
 
-export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
+export function ProjectForm({ project, headerTitle, headerDescription, onSubmit, onCancel }: ProjectFormProps) {
   const form = useForm<ProjectFormValues>({
     resolver: zodResolver(ProjectFormSchema),
     defaultValues: {
@@ -36,6 +38,14 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
       onSubmit={form.handleSubmit(onSubmit)}
       className="space-y-5 rounded-3xl border border-hairline bg-surface-card p-6 shadow-xl shadow-slate-900/5 dark:border-surface-dark-elevated dark:bg-surface-dark"
     >
+      {headerTitle ? (
+        <div className="space-y-2">
+          <h2 className="text-2xl font-semibold text-ink dark:text-on-dark">{headerTitle}</h2>
+          {headerDescription ? (
+            <p className="text-sm text-body dark:text-muted-soft">{headerDescription}</p>
+          ) : null}
+        </div>
+      ) : null}
       <div>
         <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="name">
           Project Name

@@ -133,10 +133,10 @@ export function ProjectListPage() {
 
       {showForm ? (
         <Modal
-          title={editingProject ? 'Edit Project' : 'New Project'}
-          description="Use the form below to save your project details."
+          title={editingProject ? undefined : 'New Project'}
+          description={editingProject ? undefined : 'Use the form below to save your project details.'}
           open={showForm}
-          cancelLabel="Close"
+          showCancelButton={false}
           onCancel={() => {
             setShowForm(false)
             setEditingProject(null)
@@ -144,6 +144,8 @@ export function ProjectListPage() {
         >
           <ProjectForm
             project={editingProject ?? undefined}
+            headerTitle={editingProject ? 'Edit Project' : undefined}
+            headerDescription={editingProject ? 'Use the form below to save your project details.' : undefined}
             onSubmit={handleSubmit}
             onCancel={() => {
               setShowForm(false)

@@ -8,13 +8,15 @@ import type { Task, TaskStatus, Project } from '../../types'
 interface TaskFormProps {
   task?: Task
   projects: Project[]
+  headerTitle?: string
+  headerDescription?: string
   onSubmit: (values: TaskFormValues) => void
   onCancel: () => void
 }
 
 const statusOptions: TaskStatus[] = ['Not Started', 'In Progress', 'At Risk', 'Completed']
 
-export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) {
+export function TaskForm({ task, projects, headerTitle, headerDescription, onSubmit, onCancel }: TaskFormProps) {
   const form = useForm<TaskFormValues>({
     resolver: zodResolver(TaskFormSchema),
     defaultValues: {
@@ -47,6 +49,14 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
       onSubmit={form.handleSubmit(onSubmit)}
       className="space-y-3 rounded-3xl border border-hairline bg-surface-card p-3 shadow-xl shadow-slate-900/5 dark:border-surface-dark-elevated dark:bg-surface-dark"
     >
+      {headerTitle ? (
+        <div className="space-y-2">
+          <h2 className="text-2xl font-semibold text-ink dark:text-on-dark">{headerTitle}</h2>
+          {headerDescription ? (
+            <p className="text-sm text-body dark:text-muted-soft">{headerDescription}</p>
+          ) : null}
+        </div>
+      ) : null}
       <div>
         <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="projectId">
           Project
