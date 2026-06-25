@@ -137,17 +137,6 @@ export function TaskListPage() {
         ) : (
           <section className="space-y-6">
             <TaskTable tasks={tasks} projectNames={projectMap} onEdit={handleEdit} onDelete={handleDelete} />
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {tasks.map((task) => (
-                <TaskCard
-                  key={task.id}
-                  task={task}
-                  projectName={projectMap[task.projectId] ?? 'Unknown Project'}
-                  onEdit={handleEdit}
-                  onDelete={handleDelete}
-                />
-              ))}
-            </div>
           </section>
         )}
       </div>

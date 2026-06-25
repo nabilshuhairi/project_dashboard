@@ -21,7 +21,10 @@ export function ProgressBarChart({ data }: ProgressBarChartProps) {
             <CartesianGrid strokeDasharray="3 3" stroke="#ebe6df" vertical={false} />
             <XAxis dataKey="name" tick={{ fontSize: 12 }} />
             <YAxis tick={{ fontSize: 12 }} />
-            <Tooltip formatter={(value: number) => `${value}%`} />
+            <Tooltip
+              formatter={(value: number) => `${value}%`}
+              labelStyle={{ color: '#000' }}
+            />
             <Bar dataKey="progress" radius={[8, 8, 0, 0]}>
               {data.map((entry) => (
                 <Cell key={entry.name} fill={barColorMap[entry.name] ?? '#cc785c'} />

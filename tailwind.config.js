@@ -10,7 +10,7 @@ export default {
         'accent-teal': '#5db8a6',
         'accent-amber': '#e8a55a',
         canvas: '#faf9f5',
-        'surface-card': '#efe9de',
+        'surface-card': '#ffffff',
         'surface-cream-strong': '#e8e0d2',
         'surface-dark': '#C7C7C7',
         'surface-dark-elevated': '#252320',
