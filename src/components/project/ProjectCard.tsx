@@ -15,7 +15,7 @@ export function ProjectCard({ project, onEdit, onDelete }: ProjectCardProps) {
           <p className="mt-3 text-sm leading-6 text-muted">{project.description || 'No description provided.'}</p>
         </div>
         <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
-          <span className="rounded-full bg-surface-cream-strong px-3 py-1 text-body-strong">Created {new Date(project.createdAt).toLocaleDateString()}</span>
+          <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-800">Created {new Date(project.createdAt).toLocaleDateString()}</span>
         </div>
         <div className="mt-3 flex flex-wrap gap-3">
           <button
