@@ -29,7 +29,6 @@ function App() {
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Project Pulse</p>
                 <h1 className="mt-2 text-2xl font-semibold text-white">Dashboard</h1>
-                <p className="mt-2 text-sm leading-6 text-slate-400">Manage projects, tasks, and AI insights in one polished workspace.</p>
               </div>
             </div>
 

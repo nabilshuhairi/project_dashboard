@@ -10,7 +10,7 @@ interface TaskTableProps {
 
 export function TaskTable({ tasks, projectNames, onEdit, onDelete }: TaskTableProps) {
   return (
-    <div className="overflow-hidden rounded-[2.0rem] border border-white/10 bg-slate-950/80 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
+    <div className="overflow-hidden rounded-[1.0rem] border border-white/10 bg-slate-950/80 shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
       <table className="min-w-full divide-y divide-slate-800 text-left text-sm text-slate-300">
         <thead className="bg-slate-900 text-xs uppercase tracking-[0.24em] text-slate-500">
           <tr>
