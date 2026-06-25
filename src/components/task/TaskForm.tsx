@@ -45,7 +45,7 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
   return (
     <form
       onSubmit={form.handleSubmit(onSubmit)}
-      className="space-y-5 rounded-3xl border border-hairline bg-surface-card p-6 shadow-xl shadow-slate-900/5 dark:border-surface-dark-elevated dark:bg-surface-dark"
+      className="space-y-3 rounded-3xl border border-hairline bg-surface-card p-3 shadow-xl shadow-slate-900/5 dark:border-surface-dark-elevated dark:bg-surface-dark"
     >
       <div>
         <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="projectId">
@@ -85,13 +85,13 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
         </label>
         <textarea
           id="description"
-          rows={4}
+          rows={2}
           {...form.register('description')}
           className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
         />
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-3 sm:grid-cols-2">
         <div>
           <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark" htmlFor="status">
             Status
@@ -142,17 +142,17 @@ export function TaskForm({ task, projects, onSubmit, onCancel }: TaskFormProps) 
         ) : null}
       </div>
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
+      <div className="flex flex-col gap-2 sm:flex-row sm:justify-end">
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-full border border-hairline px-4 py-2 text-sm font-semibold text-body transition hover:bg-surface-cream-strong dark:border-surface-dark-elevated dark:text-on-dark dark:hover:bg-surface-dark-elevated"
+          className="rounded-full border border-hairline px-3 py-2 text-xs font-semibold text-body transition hover:bg-surface-cream-strong dark:border-surface-dark-elevated dark:text-on-dark dark:hover:bg-surface-dark-elevated"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-on-primary transition hover:bg-primary-active"
+          className="rounded-full bg-primary px-3 py-2 text-xs font-semibold text-on-primary transition hover:bg-primary-active"
         >
           Save Task
         </button>
