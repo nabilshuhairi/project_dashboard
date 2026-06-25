@@ -27,7 +27,7 @@ export function ProgressBarChart({ data }: ProgressBarChartProps) {
             />
             <Bar dataKey="progress" radius={[8, 8, 0, 0]}>
               {data.map((entry) => (
-                <Cell key={entry.name} fill={barColorMap[entry.name] ?? '#cc785c'} />
+                <Cell key={entry.name} fill={barColorMap[entry.name] ?? '#8b5cf6'} />
               ))}
             </Bar>
           </BarChart>

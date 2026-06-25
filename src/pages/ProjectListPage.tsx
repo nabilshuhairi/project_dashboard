@@ -71,7 +71,7 @@ export function ProjectListPage() {
       setShowForm(false)
       setEditingProject(null)
     } catch (error) {
-      showNotification('error', 'Failed to save project. Please try again.')
+      showNotification('error', 'Failed to Save Project. Please try again.')
     }
   }
 
