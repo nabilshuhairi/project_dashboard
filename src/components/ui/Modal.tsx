@@ -42,11 +42,18 @@ export function Modal({
           <div>{children}</div>
         </div>
         <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-end">
+          <button
+            type="button"
+            onClick={onCancel}
+            className="rounded-full border border-hairline px-4 py-2 text-sm font-semibold text-body transition hover:bg-surface-cream-strong dark:border-surface-dark-elevated dark:text-on-dark dark:hover:bg-surface-dark-elevated"
+          >
+            {cancelLabel}
+          </button>
           {onConfirm ? (
             <button
               type="button"
               onClick={onConfirm}
-              className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-on-primary transition hover:bg-primary-active focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-active/30"
+              className="rounded-full bg-[#4F46E5] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#4338CA] active:bg-[#3730A3] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C7D2FE]/60"
             >
               {confirmLabel}
             </button>
