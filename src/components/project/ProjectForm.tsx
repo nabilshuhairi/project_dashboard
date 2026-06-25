@@ -73,7 +73,7 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
         </button>
         <button
           type="submit"
-          className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-on-primary transition hover:bg-primary-active"
+          className="rounded-full bg-[#4F46E5] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#4338CA] active:bg-[#3730A3] focus:outline-none focus:ring-2 focus:ring-[#C7D2FE]/60"
         >
           Save Project
         </button>
