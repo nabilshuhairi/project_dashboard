@@ -11,10 +11,10 @@ interface FilterControlsProps {
 }
 
 const statusOptions: Array<TaskStatus | 'All'> = ['All', 'Not Started', 'In Progress', 'At Risk', 'Completed']
-const sortOptions = [
+const sortOptions: Array<{ value: '' | 'dueDate' | 'progress'; label: string }> = [
   { value: '', label: 'None' },
-  { value: 'dueDate' as const, label: 'Due Date' },
-  { value: 'progress' as const, label: 'Progress' },
+  { value: 'dueDate', label: 'Due Date' },
+  { value: 'progress', label: 'Progress' },
 ]
 
 interface DropdownSelectProps<T extends string> {
@@ -46,7 +46,7 @@ function DropdownSelect<T extends string>({ label, value, options, onChange }: D
       <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark">{label}</label>
       <button
         type="button"
-        className="flex h-14 w-full items-center justify-between rounded-2xl border border-[#252320] bg-[#C7C7C7] px-4 text-left text-sm text-[#ffffff] shadow-sm transition focus:border-[#dbdbdb33] focus:outline-none focus:ring-2 focus:ring-[#dbdbdb33]/20"
+        className="flex h-14 w-full items-center justify-between rounded-2xl border border-[#D5C9B2] bg-[#F8F3E8] px-4 text-left text-sm text-[#111827] shadow-sm transition focus:border-[#BFA975] focus:outline-none focus:ring-2 focus:ring-[#BFA975]/20"
         onClick={() => setIsOpen((current) => !current)}
         aria-expanded={isOpen}
       >
@@ -58,12 +58,12 @@ function DropdownSelect<T extends string>({ label, value, options, onChange }: D
         </span>
       </button>
       {isOpen && (
-        <div className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-auto rounded-2xl border border-[#252320] bg-[#C7C7C7] shadow-lg">
+        <div className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-auto rounded-2xl border border-[#D5C9B2] bg-[#F8F3E8] shadow-lg">
           {options.map((option) => (
             <button
               key={option.value}
               type="button"
-              className="w-full px-4 py-3 text-left text-sm text-[#faf9f5] transition hover:bg-slate-400/50"
+              className="w-full px-4 py-3 text-left text-sm text-[#111827] transition hover:bg-[#E8E2D6]"
               onClick={() => {
                 onChange(option.value)
                 setIsOpen(false)
@@ -96,13 +96,13 @@ export function FilterControls({
       />
 
       <div className="flex h-full flex-col justify-between">
-        <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark">Search</label>
+        <label className="mb-2 block text-sm font-medium text-[#374151]">Search</label>
         <input
           type="search"
           value={searchQuery}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search task title"
-          className="h-14 w-full rounded-2xl border border-[#252320] bg-[#C7C7C7] px-4 text-sm text-[#faf9f5] placeholder:text-[#ffffff] shadow-sm outline-none transition focus:border-[#dbdbdb33] focus:ring-2 focus:ring-[#dbdbdb33]/20"
+          className="h-14 w-full rounded-2xl border border-[#D5C9B2] bg-[#F8F3E8] px-4 text-sm text-[#111827] placeholder:text-[#6B7280] shadow-sm outline-none transition focus:border-[#BFA975] focus:ring-2 focus:ring-[#BFA975]/20"
         />
       </div>
 
