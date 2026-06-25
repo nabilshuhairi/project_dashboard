@@ -43,10 +43,10 @@ function DropdownSelect<T extends string>({ label, value, options, onChange }: D
 
   return (
     <div className="relative flex h-full flex-col justify-between" ref={menuRef}>
-      <label className="mb-2 block text-sm font-medium text-body dark:text-on-dark">{label}</label>
+      <label className="mb-2 block text-sm font-medium text-[#000000]">{label}</label>
       <button
         type="button"
-        className="flex h-14 w-full items-center justify-between rounded-2xl border border-[#D5C9B2] bg-[#F8F3E8] px-4 text-left text-sm text-[#111827] shadow-sm transition focus:border-[#BFA975] focus:outline-none focus:ring-2 focus:ring-[#BFA975]/20"
+        className="flex h-14 w-full items-center justify-between rounded-2xl border border-[#000000] bg-[#F5F5F5] px-4 text-left text-sm text-[#000000] shadow-sm transition focus:border-[#000000] focus:outline-none focus:ring-2 focus:ring-[#000000]/20"
         onClick={() => setIsOpen((current) => !current)}
         aria-expanded={isOpen}
       >
@@ -58,12 +58,12 @@ function DropdownSelect<T extends string>({ label, value, options, onChange }: D
         </span>
       </button>
       {isOpen && (
-        <div className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-auto rounded-2xl border border-[#D5C9B2] bg-[#F8F3E8] shadow-lg">
+        <div className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-auto rounded-2xl border border-[#000000] bg-[#F5F5F5] shadow-lg">
           {options.map((option) => (
             <button
               key={option.value}
               type="button"
-              className="w-full px-4 py-3 text-left text-sm text-[#111827] transition hover:bg-[#E8E2D6]"
+              className="w-full px-4 py-3 text-left text-sm text-[#000000] transition hover:bg-[#E5E5E5]"
               onClick={() => {
                 onChange(option.value)
                 setIsOpen(false)
@@ -96,13 +96,13 @@ export function FilterControls({
       />
 
       <div className="flex h-full flex-col justify-between">
-        <label className="mb-2 block text-sm font-medium text-[#374151]">Search</label>
+        <label className="mb-2 block text-sm font-medium text-[#000000]">Search</label>
         <input
           type="search"
           value={searchQuery}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search task title"
-          className="h-14 w-full rounded-2xl border border-[#D5C9B2] bg-[#F8F3E8] px-4 text-sm text-[#111827] placeholder:text-[#6B7280] shadow-sm outline-none transition focus:border-[#BFA975] focus:ring-2 focus:ring-[#BFA975]/20"
+          className="h-14 w-full rounded-2xl border border-[#000000] bg-[#F5F5F5] px-4 text-sm text-[#000000] placeholder:text-[#6B7280] shadow-sm outline-none transition focus:border-[#000000] focus:ring-2 focus:ring-[#000000]/20"
         />
       </div>
 
