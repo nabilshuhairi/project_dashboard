@@ -1,71 +1,79 @@
 # AI Usage Summary
 
 ## Overview
-This document summarizes all tasks, updates, design improvements, and configuration changes completed so far in the Project Pulse Dashboard project.
+This document captures all completed work for the Project Pulse Dashboard, including feature implementation, UI updates, component refinement, bug fixes, layout improvements, and documentation changes.
 
-## Key Updates and Implemented Changes
+## Completed Tasks and Enhancements
 
-### UI Styling and Visual Refinement
-- Updated `FilterControls` to use consistent light grey input styling for `Status`, `Search`, and `Sort by` fields.
-- Ensured black text (`#000000`) for field content and black borders/highlight outlines on focus.
-- Unified dropdown backgrounds, selected values, and menu item colors to match the input field appearance.
-- Center-aligned KPI card text and numeric values in `src/components/ui/KpiCard.tsx`.
-- Applied consistent card spacing and alignment across KPI sections.
-- Updated AI Insights page layout and card styling to a clean dark mode appearance, including:
-  - `AI Generated Summary` sidebar panel
-  - summary tab buttons and active state styling
-  - insight output panel and status badge
-  - `Insights Source` and `Current Workspace` cards
-- Updated `src/components/ui/Modal.tsx` to support optional headers/descriptions and to conditionally hide modal title and cancel button when not needed.
-- Refactored edit modals on `ProjectListPage` and `TaskListPage` so form-specific headers appear inside `ProjectForm` and `TaskForm` instead of the modal shell.
+### Feature and Functionality Updates
+- Implemented a full project/task dashboard with CRUD functionality for projects and tasks.
+- Added the AI Insights page with generated summaries, risk analysis, next actions, and weekly updates.
+- Enabled search, status filtering, and sorting on the Dashboard page.
+- Implemented visual KPIs for total tasks, completed tasks, at-risk tasks, overdue tasks, and overall progress.
+- Added chart visualizations for progress overview, status distribution, and task completion trends.
+- Incorporated responsive workflow navigation with sidebar and mobile navigation.
+- Built reusable modal dialogs for form interactions and delete confirmations.
 
-### Functional Improvements
-- Added or maintained `AIInsightsPage` with mock AI insight generation and optional OpenAI integration placeholder.
-- Implemented responsive dashboard page transitions using `framer-motion` in `src/App.tsx`.
-- Ensured data persistence through `localStorage` via `src/store/dashboardStore.ts` and `src/utils/storage.ts`.
-- Maintained strong typing and validation across project/task forms using `react-hook-form`, `zod`, and TypeScript.
+### UI/UX Improvements
+- Standardized field styling across Dashboard filter inputs, including Status, Search, and Sort By fields.
+- Applied soft neutral default controls with purple accent focus styling for a polished modern look.
+- Updated `KpiCard` component to center-align title and value content.
+- Refined the AI Insights page with improved card surfaces, dark theme panels, and consistent interactive states.
+- Improved modal form layouts by moving form headers inside `ProjectForm` and `TaskForm`.
+- Ensured consistent whitespace, border radius, and shadows across all card and modal elements.
+- Enhanced button states and hover interactions across forms and list actions.
 
-### Code and Architecture
-- Centralized global state using Zustand in `src/store/dashboardStore.ts`.
-- Structured the app with the following main pages:
-  - `src/pages/DashboardOverviewPage.tsx`
-  - `src/pages/ProjectListPage.tsx`
-  - `src/pages/TaskListPage.tsx`
-  - `src/pages/AIInsightsPage.tsx`
-- Defined reusable UI components for charts, modals, notifications, filter controls, KPI cards, and forms.
-- Updated type-safe task and project models in `src/types/task.ts` and `src/types/project.ts`.
-- Used utility helpers for ID creation and storage handling in `src/utils/identity.ts` and `src/utils/storage.ts`.
+### Bug Fixes and Layout Adjustments
+- Fixed modal layout inconsistencies by making `Modal` header and cancel button optional.
+- Corrected type mismatches in `FilterControls` for strongly typed sorting options.
+- Updated dropdown panel styles to match the default field appearance.
+- Ensured consistent input focus behavior across project/task modals and dashboard filters.
+- Improved feedback on form validation errors for project and task entries.
 
-### Documentation
-- Replaced the original starter README with a comprehensive project summary describing:
-  - application features
-  - architecture
-  - technology stack
-  - setup instructions
-  - design and UX patterns
-  - notes on AI insight behavior and persistence
+### Component and Interaction Updates
+- `src/components/ui/Modal.tsx`
+  - Added optional title/description rendering.
+  - Allowed conditional footer/cancel button display.
+- `src/components/ui/FilterControls.tsx`
+  - Harmonized dropdown/select and input field styles.
+  - Added subtle purple focus borders and soft neutral backgrounds.
+- `src/components/ui/KpiCard.tsx`
+  - Center-aligned metrics for better visual balance.
+- `src/components/project/ProjectForm.tsx`
+  - Updated focus styles and modal form presentation.
+- `src/components/task/TaskForm.tsx`
+  - Updated focus styles and form field consistency.
 
-## Configuration and Dependencies
-- Primary framework: Vite + React + TypeScript
-- Styling: Tailwind CSS
-- State: Zustand
-- Form handling and validation: `react-hook-form` + `zod`
-- Data visualization: Recharts
-- Animations: Framer Motion
-- Linting: ESLint
-- Local persistence: `localStorage`
+### Architecture and Configuration
+- Centralized global app state using Zustand in `src/store/dashboardStore.ts`.
+- Persisted app data using `localStorage` through helper functions in `src/utils/storage.ts`.
+- Used Zod schemas in `src/validation/dashboardSchemas.ts` for robust form validation.
+- Implemented page routing and transitions in `src/App.tsx` using `framer-motion`.
+- Maintained strong TypeScript typing across project and task data models.
+- Updated documentation to replace starter Vite/React docs with accurate project details.
 
-## Completed Tasks and Improvements
-1. Reworked filter controls and form focus styling.
-2. Styled inputs, dropdowns, and placeholders for consistent visual language.
-3. Aligned all KPI card text and values centrally.
-4. Applied dark UI card styling to AI Insights page components.
-5. Cleaned up modal usage and removed redundant outer headers for edit flows.
-6. Ensured delete confirmation modals still render properly.
-7. Replaced README content with accurate project documentation.
-8. Verified updated files compile without TypeScript errors.
+## Dependencies and Tooling
+- React 19
+- TypeScript 6
+- Vite 5
+- Tailwind CSS
+- Zustand
+- Recharts
+- Framer Motion
+- React Hook Form
+- Zod
+- ESLint
 
-## Notes
-- The AI Insights feature currently uses a mock response generator for offline mode.
-- Sidebar navigation remains separate from the AI Insights page content background styling.
-- The project is designed for easy extension with additional AI or analytics functionality.
+## Documentation and Notes
+- `README.md` has been replaced with a project-specific overview covering architecture, features, stack, setup, and design.
+- `AI-Usage.md` now serves as a changelog and implementation reference for completed work.
+- AI insights are currently generated using local mock logic, with optional `VITE_OPENAI_API_KEY` support available in code.
+- The system is designed to be extensible for additional analytics, AI enhancements, and project reporting features.
+
+## Summary of Work Completed
+- Dashboard filter controls styled and aligned with design reference.
+- KPI and chart layout polished for improved data readability.
+- Project and task modals refactored with cleaner header behavior.
+- AI Insights page restyled with consistent dark-themed cards.
+- State persistence and validation flows stabilized.
+- Documentation updated to reflect real system behavior and architecture.
