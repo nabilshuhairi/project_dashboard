@@ -54,7 +54,7 @@ export function ProjectForm({ project, headerTitle, headerDescription, onSubmit,
           id="name"
           type="text"
           {...form.register('name')}
-          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-[#A855F7] dark:focus:ring-[#A855F7]/20"
         />
         {form.formState.errors.name ? (
           <p className="mt-2 text-sm text-error">{form.formState.errors.name.message}</p>
@@ -69,7 +69,7 @@ export function ProjectForm({ project, headerTitle, headerDescription, onSubmit,
           id="description"
           rows={4}
           {...form.register('description')}
-          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-[#A855F7] dark:focus:ring-[#A855F7]/20"
         />
       </div>
 

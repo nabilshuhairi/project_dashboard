@@ -64,7 +64,7 @@ export function TaskForm({ task, projects, headerTitle, headerDescription, onSub
         <select
           id="projectId"
           {...form.register('projectId')}
-          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-[#A855F7] dark:focus:ring-[#A855F7]/20"
         >
           {projects.map((project) => (
             <option key={project.id} value={project.id}>
@@ -82,7 +82,7 @@ export function TaskForm({ task, projects, headerTitle, headerDescription, onSub
           id="title"
           type="text"
           {...form.register('title')}
-          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-[#A855F7] dark:focus:ring-[#A855F7]/20"
         />
         {form.formState.errors.title ? (
           <p className="mt-2 text-sm text-rose-600">{form.formState.errors.title.message}</p>
@@ -97,7 +97,7 @@ export function TaskForm({ task, projects, headerTitle, headerDescription, onSub
           id="description"
           rows={2}
           {...form.register('description')}
-          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-[#A855F7] dark:focus:ring-[#A855F7]/20"
         />
       </div>
 
@@ -109,7 +109,7 @@ export function TaskForm({ task, projects, headerTitle, headerDescription, onSub
           <select
             id="status"
             {...form.register('status')}
-            className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
+            className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-[#A855F7] dark:focus:ring-[#A855F7]/20"
           >
             {statusOptions.map((status) => (
               <option key={status} value={status}>
@@ -127,7 +127,7 @@ export function TaskForm({ task, projects, headerTitle, headerDescription, onSub
             id="progress"
             type="number"
             {...form.register('progress', { valueAsNumber: true })}
-            className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
+            className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-[#A855F7] dark:focus:ring-[#A855F7]/20"
             min={0}
             max={100}
           />
@@ -145,7 +145,7 @@ export function TaskForm({ task, projects, headerTitle, headerDescription, onSub
           id="dueDate"
           type="date"
           {...form.register('dueDate')}
-          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-primary-active dark:focus:ring-primary-active/20"
+          className="w-full rounded-2xl border border-hairline bg-canvas px-4 py-3 text-sm text-ink shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 dark:border-surface-dark-elevated dark:bg-surface-dark dark:text-on-dark dark:focus:border-[#A855F7] dark:focus:ring-[#A855F7]/20"
         />
         {form.formState.errors.dueDate ? (
           <p className="mt-2 text-sm text-rose-600">{form.formState.errors.dueDate.message}</p>
