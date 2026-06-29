@@ -1,43 +1,34 @@
 # Project Pulse Dashboard
 
-A polished project and task management dashboard built with React, TypeScript, Tailwind CSS, and Vite.
+Project Pulse Dashboard is a production-style project and task management application created with Vite, React, TypeScript, Tailwind CSS, and Zustand.
 
-This app offers a modern workspace for tracking projects, managing tasks, visualizing progress, and generating AI-style insights with local persistence.
+It delivers a streamlined workspace for tracking projects, managing task workflows, visualizing progress, and generating AI-style insights with local persistence and responsive UI behavior.
 
-## What this system does
+## System Functionality
 
-- Tracks projects and tasks in a centralized dashboard.
-- Filters, sorts, and searches task data in real time.
-- Shows KPI cards for total tasks, completed tasks, at-risk tasks, overdue tasks, and overall progress.
-- Visualizes task status distribution and completion trends with charts.
-- Supports project and task CRUD flows with modal forms.
-- Generates AI-inspired insights from task and project data.
-- Persists all state in browser storage for continued sessions.
+- Centralized project and task management with create, edit, and delete operations
+- Task filtering by status, search, and sorting across the dashboard
+- KPI summaries for total tasks, completed tasks, at-risk tasks, overdue tasks, and overall progress
+- Recharts-based visualizations showing status distribution, progress composition, and completion trends
+- Responsive sidebar navigation with desktop and mobile layouts
+- Modal-driven forms for task/project creation and editing
+- AI Insights page with generated summaries and mock AI output
+- Persistent local storage so state survives refreshes and browser reloads
 
-## Main Pages
+## Core Pages
 
 - **Dashboard Overview** (`src/pages/DashboardOverviewPage.tsx`)
-  - Displays KPI cards, `FilterControls`, and charts for task analytics.
-  - Provides status filtering, search, and sorting.
+  - Displays KPI cards, filter controls, and analytics charts.
+  - Implements task search, status filtering, and sorting by due date or progress.
 - **Project Management** (`src/pages/ProjectListPage.tsx`)
-  - Offers add / edit / delete project workflows.
-  - Uses `ProjectForm`, `ProjectCard`, and confirmation modals.
+  - Handles adding, editing, and deleting projects using a reusable modal form.
+  - Renders project cards with edit/delete actions.
 - **Task Management** (`src/pages/TaskListPage.tsx`)
-  - Handles task creation, updates, and deletions.
-  - Assigns tasks to projects and tracks progress/status.
+  - Handles task entry, editing, deletion, and project assignment.
+  - Uses table and card layouts for managing tasks.
 - **AI Insights** (`src/pages/AIInsightsPage.tsx`)
-  - Displays AI-generated summaries, risk analysis, next actions, and weekly updates.
-  - Uses mock AI responses with optional OpenAI integration.
-
-## Key Features
-
-- Task and project CRUD management
-- Persistent state using `localStorage`
-- Form validation using `react-hook-form` and `zod`
-- Responsive layout with desktop sidebar and mobile navigation
-- Recharts visualizations for progress and status data
-- Animated page transitions using Framer Motion
-- Reusable modal and notification UI patterns
+  - Generates AI-style summaries, risks, next actions, and weekly updates.
+  - Uses mock data with optional placeholder support for OpenAI integration.
 
 ## Technology Stack
 
@@ -45,39 +36,45 @@ This app offers a modern workspace for tracking projects, managing tasks, visual
 - TypeScript 6
 - Vite 5
 - Tailwind CSS
-- Zustand for global state management
-- Recharts for charts and data visualizations
-- Framer Motion for page transitions
-- React Hook Form + Zod for form state and validation
-- ESLint for code quality
+- Zustand for application state
+- Recharts for charts
+- Framer Motion for animated transitions
+- React Hook Form + Zod for form handling and validation
+- ESLint for linting and code quality
 
 ## Architecture Overview
 
-### State and persistence
+### App shell
+
+- `src/App.tsx`
+  - Main application shell with view switching between pages.
+  - Includes a persistent desktop sidebar and mobile navigation.
+  - Uses Framer Motion for animated transitions between views.
+
+### State management
 
 - `src/store/dashboardStore.ts`
-  - Zustand store for `projects` and `tasks`.
-  - Provides add, update, remove, and clear actions.
-  - Persists state under `project-dashboard-state` in `localStorage`.
+  - Zustand store for global `projects` and `tasks` state.
+  - Supports CRUD actions and local persistence through `localStorage`.
 
 ### Data models and validation
 
 - `src/types/project.ts`
-  - Defines project data shape.
+  - Project model definition.
 - `src/types/task.ts`
-  - Defines task fields and status types.
+  - Task model definition, including status and progress fields.
 - `src/validation/dashboardSchemas.ts`
-  - Defines Zod schemas for project and task form validation.
+  - Zod schemas for project and task form validation.
 
-### UI components
+### Reusable UI components
 
-- `src/components/ui/FilterControls.tsx` — Status / search / sort filters
-- `src/components/ui/KpiCard.tsx` — Metric cards
-- `src/components/ui/ProgressBarChart.tsx` — Progress chart
-- `src/components/ui/StatusPieChart.tsx` — Status distribution chart
-- `src/components/ui/CompletionTrendChart.tsx` — Trend chart
-- `src/components/ui/Modal.tsx` — Shared modal dialog
-- `src/components/ui/Notification.tsx` — Toast notifications
+- `src/components/ui/FilterControls.tsx` — Dashboard filter input controls
+- `src/components/ui/KpiCard.tsx` — Summary metric cards
+- `src/components/ui/ProgressBarChart.tsx` — Progress composition chart
+- `src/components/ui/StatusPieChart.tsx` — Status distribution pie chart
+- `src/components/ui/CompletionTrendChart.tsx` — Completion trend chart
+- `src/components/ui/Modal.tsx` — Shared modal dialog wrapper
+- `src/components/ui/Notification.tsx` — Feedback notifications
 
 ### Feature components
 
@@ -87,20 +84,20 @@ This app offers a modern workspace for tracking projects, managing tasks, visual
 - `src/components/task/TaskCard.tsx`
 - `src/components/task/TaskTable.tsx`
 
-### Utilities
+### Utility helpers
 
-- `src/utils/storage.ts` — Storage helpers for JSON load/save/remove
-- `src/utils/identity.ts` — ID generation and timestamp helpers
+- `src/utils/storage.ts` — JSON storage helpers for LocalStorage
+- `src/utils/identity.ts` — ID and timestamp generation utilities
 
-## Design and User Experience
+## Design and UX
 
-- Dark dashboard aesthetic with polished cards and subtle shadows
-- Consistent visual hierarchy across KPI, table, chart, and insight sections
-- Centered content and spacing for clean layouts
-- Distinct UI states for active filters, focused inputs, and modal dialogs
-- Cohesive card styling across pages for clarity and visual consistency
+- Modern dashboard aesthetic with clean cards, elevated surfaces, and subtle shadows
+- Responsive layout that adapts between desktop sidebar and mobile nav
+- Clear interactive states for input focus, dropdowns, modals, and buttons
+- Balanced spacing and typography for readability and hierarchy
+- Unified color usage across cards, charts, and forms to maintain consistency
 
-## Getting Started
+## Setup and development
 
 Install dependencies:
 
@@ -108,13 +105,13 @@ Install dependencies:
 npm install
 ```
 
-Run the development server:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Build for production:
+Build the app for production:
 
 ```bash
 npm run build
@@ -126,7 +123,7 @@ Preview the production build:
 npm run preview
 ```
 
-Lint the project:
+Run lint checks:
 
 ```bash
 npm run lint
@@ -134,6 +131,6 @@ npm run lint
 
 ## Notes
 
-- AI insights use mock content by default, with optional OpenAI API key support via `VITE_OPENAI_API_KEY`.
-- Data is stored locally and reloaded automatically after browser refresh.
-- This repository is built for rapid UI iteration and task-driven project tracking.
+- AI Insights currently generate mock data unless `VITE_OPENAI_API_KEY` is configured.
+- Application state persists through the browser using `localStorage`.
+- This README now reflects the actual system architecture, styling, and functionality instead of starter Vite documentation.
