@@ -46,7 +46,7 @@ function DropdownSelect<T extends string>({ label, value, options, onChange }: D
       <label className="mb-2 block text-sm font-medium text-[#000000]">{label}</label>
       <button
         type="button"
-        className="flex h-14 w-full items-center justify-between rounded-2xl border border-[#000000] bg-[#F5F5F5] px-4 text-left text-sm text-[#000000] shadow-sm transition focus:border-[#000000] focus:outline-none focus:ring-2 focus:ring-[#000000]/20"
+        className="flex h-14 w-full items-center justify-between rounded-2xl border border-[#000000] bg-[#F5F5F5] px-4 text-left text-sm text-[#000000] shadow-sm transition focus:border-[#7C3AED] focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20"
         onClick={() => setIsOpen((current) => !current)}
         aria-expanded={isOpen}
       >
@@ -102,7 +102,7 @@ export function FilterControls({
           value={searchQuery}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search task title"
-          className="h-14 w-full rounded-2xl border border-[#000000] bg-[#F5F5F5] px-4 text-sm text-[#000000] placeholder:text-[#6B7280] shadow-sm outline-none transition focus:border-[#000000] focus:ring-2 focus:ring-[#000000]/20"
+          className="h-14 w-full rounded-2xl border border-[#000000] bg-[#F5F5F5] px-4 text-sm text-[#000000] placeholder:text-[#6B7280] shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20"
         />
       </div>
 
