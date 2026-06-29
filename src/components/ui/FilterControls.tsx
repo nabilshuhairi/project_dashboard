@@ -43,7 +43,7 @@ function DropdownSelect<T extends string>({ label, value, options, onChange }: D
 
   return (
     <div className="relative flex h-full flex-col justify-between" ref={menuRef}>
-      <label className="mb-2 block text-sm font-medium text-[#000000]">{label}</label>
+      <label className="mb-2 block text-sm font-medium text-slate-700">{label}</label>
       <button
         type="button"
         className="flex h-14 w-full items-center justify-between rounded-2xl border border-[#D1D5DB] bg-[#F8FAFC] px-4 text-left text-sm text-[#111827] shadow-sm transition focus:border-[#7C3AED] focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20"
@@ -58,12 +58,12 @@ function DropdownSelect<T extends string>({ label, value, options, onChange }: D
         </span>
       </button>
       {isOpen && (
-        <div className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-auto rounded-2xl border border-[#000000] bg-[#F5F5F5] shadow-lg">
+        <div className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-auto rounded-2xl border border-[#D1D5DB] bg-[#F8FAFC] shadow-lg">
           {options.map((option) => (
             <button
               key={option.value}
               type="button"
-              className="w-full px-4 py-3 text-left text-sm text-[#000000] transition hover:bg-[#E5E5E5]"
+              className="w-full px-4 py-3 text-left text-sm text-[#111827] transition hover:bg-[#E5E7EB]"
               onClick={() => {
                 onChange(option.value)
                 setIsOpen(false)
@@ -102,7 +102,7 @@ export function FilterControls({
           value={searchQuery}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search task title"
-          className="h-14 w-full rounded-2xl border border-[#D1D5DB] bg-[#F8FAFC] px-4 text-sm text-[#111827] placeholder:text-[#6B7280] shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20"
+          className="h-14 w-full rounded-2xl border border-[#D1D5DB] bg-[#F8FAFC] px-4 text-sm text-[#111827] placeholder:text-[#9CA3AF] shadow-sm outline-none transition focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20"
         />
       </div>
 
